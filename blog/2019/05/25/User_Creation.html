@@ -105,127 +105,21 @@
 
 <figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes"
                 controller="TasksAssignedForContractor"</span> <span class="nt">&gt;</span>
-  <span class="nt">&lt;aura:attribute name="taskList" type="List"</span> <span class="na">name=</span><span class="s">"text"</span> <span class="na">type=</span><span class="s">"String"</span> <span class="na">required=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
-<p><aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes"
-                controller="TasksAssignedForContractor">
-    <aura:attribute name="taskList" type="List"/>
-    <aura:attribute name="taskStatusList" type="List"/>
-    <aura:attribute name="selectStatus" type="String"/>
-    <aura:attribute name="options" type="List" />
-
-    <aura:attribute name="task" type="Task"/>
-    
-    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
-    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/>
-    <aura:attribute name="selectedTabsoft" type="string" default="DueDate" description="Use for show/hide arraow sign on header based on conditions"/>
-
-
-    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
-    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
-
-    <aura:handler event="force:navigateToSObject" action="{!c.navigateToRecord}"/>
-
-    <lightning:card title="Tasks Due">
-        
-        <table style="width: 100%; table-layout:fixed;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-cell-wrap">
-            <thead>
-                <tr class="slds-text-heading--label">
-                    <th class="" style = "width: 30%;" scope="col">Subject</th>
-
-                    <!--<th class="" style = "width: 20%;" scope="col">--><!--onclick="{!c.sortDueDate}"-->
-                        <!--<a href="javascript:void(0);" class="slds-th__action slds-text-link-reset">
-                            <span class="slds-assistive-text">Sort</span>-->
-                            <!--<span class="slds-truncate" title="Name">Created Date</span>-->
-                            <!--<aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'DueDate') }">&nbsp;  &#9660; </aura:if>
-                            <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'DueDate') }"> &nbsp;  &#9650; </aura:if>-->
-                        <!--</a>-->
-                    <!--</th>-->
-
-                    <!--Added New -->                   
-                    <th class="" style = "width: 15%;" scope="col"  >
-                        <!--<a href="javascript:void(0);" class="slds-th__action slds-text-link-reset">-->
-                            <!--<span class="slds-assistive-text">Sort</span>-->
-                            <span class="slds-truncate" title="Name">Due Date</span>
-                            <!--<aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'DueDate') }">&nbsp;  &#9660; </aura:if>
-                            <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'DueDate') }"> &nbsp;  &#9650; </aura:if>-->
-                        <!--</a>-->
-                    </th>
-
-
-                    <!--<th class="" style = "width: 20%;" scope="col">Status</th>-->
-                    <th class="" style = "width: 20%;" scope="col">Name </th>
-                    <th class="" style = "width: 20%;" scope="col">Related To </th>  
-                    <th class="" style = "width: 20%;" scope="col">Close Activity </th>  
-                </tr>
-            </thead>
-            <tbody>
-                <aura:iteration items="{!v.taskList}" var="task" indexVar="index">
-                    <tr class="slds-hint-parent slds-cell-wrap">
-                        <td data-label="Subject" class="slds-cell-wrap" >
-                            <a onclick="{!c.navigateToRecord}" style="width:100%;" data-index="{!task.Id}">{!task.Subject}</a>
-                        </td>
-
-                        <!--<td data-label="Created Date" class="slds-cell-wrap" >  
-                            <ui:outputDate value="{!task.ActivityDate}" format="MM/dd/YYYY, hh:mm A"></ui:outputDate>                           
-                        </td> -->
-
-                        <!--Added New -->
-                        <td data-label="Due Date" class="slds-cell-wrap" >  
-                            <ui:outputDate value="{!task.ActivityDate}" format="MM/dd/YYYY"></ui:outputDate>                           
-                        </td> 
-
-                        <!--<td data-label="Status" data-taskId="{!task.Id}" id="tdId" class="tdclass">
-                            <lightning:select name="{!task.Id}" label="" aura:id="{!task.Id}" value="{!task.Status}"
-                                              variant="label-hidden" >
-                                <aura:iteration items="{!v.taskStatusList}" var="itemStatus">
-                                    <option text="{!itemStatus}" value="{!itemStatus}" />
-                                 </aura:iteration>
-                            </lightning:select>
-
-                            <lightning:input aura:id="taskId" label="taskId" name="taskId"
-                                                    type="text" value="{!task.Id}"  class="slds-hide"/>
-                        </td>-->
-                        <td data-label="Name" class="slds-cell-wrap" >
-                            <a onclick="{!c.navigateToName}" style="width:100%;" data-index="{!task.WhoId}">{!task.Who.Name}</a>
-                        </td>
-                        <td data-label="Related to" class="slds-cell-wrap" >
-                            <a onclick="{!c.navigateToRelatedTo}" style="width:100%;" data-index="{!task.WhatId}">{!task.What.Name}</a>
-                        </td>
-                        <td class="slds-cell-wrap" data-taskId="{!task.Id}">
-                            <div class="slds-dropdown-trigger">  
-                                <button class="slds-button slds-button--icon-border-filled">
-                                    <!--<c:svg class="slds-button__icon" xlinkHref="/resource/SLDS/icons/utility-sprite/svg/symbols.svg#switch">
-                                    </c:svg>-->
-                                    <lightning:icon iconName="utility:switch" alternativeText="Close" />
-                                    <span class="slds-assistive-text">Switch</span>
-                                </button>
-                                
-                                <div class="slds-dropdown slds-dropdown--right slds-nubbin--top-right slds-dropdown--menu">
-                                    <ul class="slds-dropdown__list" role="menu">
-                                        <li id="menu-0-0" class="slds-dropdown__item">
-                                            <a onclick="{!c.closeTask}" role="menuitem" data-index="{!task.Id}">
-                                                <p class="slds-truncate">Close</p>
-                                            </a>
-                                        </li>                                    
-                                    </ul>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                </aura:iteration>
-            </tbody>
-        </table>
-        <aura:if isTrue="{!v.taskList.length >= 5}">
-            <table style="width: 100%; table-layout:fixed;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-cell-wrap">
-                <th class="" scope="col"></th>
-                <td data-label="View All" class="slds-cell-wrap" >
-                    <a onclick="{!c.navigateToViewAll}" style="width:100%;">View All</a>
-                </td> 
-            </table>
-        </aura:if>
-    </lightning:card>
-</aura:component></p>
-
+  <span class="nt">&lt;aura:attribute name="taskList" type="List"</span> <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:attribute name="taskStatusList" type="List"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:attribute name="selectStatus" type="String"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:attribute name="options" type="List"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:attribute name="task" type="Task"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:handler name="init" value="{!this}" action="{!c.doInit}"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:dependency resource="markup://force:navigateToSObject" type="EVENT"</span>  <span class="nt">/&gt;</span>
+  <span class="nt">&lt;aura:handler event="force:navigateToSObject" action="{!c.navigateToRecord}"</span>  <span class="nt">/&gt;</span>
+  
+  <span class="nt">&lt;lightning:card title="Tasks Due"</span>  <span class="nt">/&gt;</span>
+     <span class="nt">&lt;table style="width: 100%; table-layout:fixed;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-cell-wrap"</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;thead</span><span class="nt">/&gt;</span>
+	   <span class="nt">&lt;tr class="slds-text-heading--label"</span><span class="nt">/&gt;</span>
+	      <span class="nt">&lt;<th class="" style = "width: 30%;" scope="col">Subject</th>
+  
   <!--<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slds-form-element__icon"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"slds-form-element__icon slds-align-middle"</span>
       <span class="na">onclick=</span><span class="s">"{!c.handleOnClick}"</span>
