@@ -1,5 +1,5 @@
 <html><head>
-    <title>User Name Availability – Ideas and experiences of a Salesforce Developer</title>
+    <title>Custom Task Component</title>
 
         <meta charset="utf-8">
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
     
-    <meta name="description" content="The standard lightning:helptext component has a strange limitation where it doesn’t work with Lightning Out. That’s why I decided to create a quick and dirty custom component to replace it:
+    <!--<meta name="description" content="The standard lightning:helptext component has a strange limitation where it doesn’t work with Lightning Out. That’s why I decided to create a quick and dirty custom component to replace it:
 
 
 
@@ -22,7 +22,7 @@
 
     
     <meta property="og:title" content="Lightning Help Text Component">
-    <meta property="twitter:title" content="Lightning Help Text Component">
+    <meta property="twitter:title" content="Lightning Help Text Component">-->
     
 
     <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
     <![endif]-->
 	<link href="/css/syntax.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/style.css">
-    <link rel="alternate" type="application/rss+xml" title="Smukov on Salesforce - Ideas and experiences of a Salesforce Developer" href="/feed.xml">
+    <link rel="alternate" type="application/rss+xml" title="Mahesh - Custom Task Component" href="/feed.xml">
     <script async="" src="//www.google-analytics.com/analytics.js"></script><script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -38,8 +38,8 @@
     <!-- Created with Jekyll Now - http://github.com/barryclark/jekyll-now -->
     
     <!-- Begin Jekyll SEO tag v1.3.2 -->
-<title>User Name Availability</title>
-<meta property="og:title" content="Lightning Help Text Component">
+<title>Custom Task Component</title>
+<!--<meta property="og:title" content="Lightning Help Text Component">
 <meta name="description" content="The standard lightning:helptext component has a strange limitation where it doesn’t work with Lightning Out. That’s why I decided to create a quick and dirty custom component to replace it:">
 <meta property="og:description" content="The standard lightning:helptext component has a strange limitation where it doesn’t work with Lightning Out. That’s why I decided to create a quick and dirty custom component to replace it:">
 <link rel="canonical" href="http://smukov.github.io/blog/2018/02/18/Lightning-Help-Text/">
@@ -58,9 +58,9 @@
     "description": "The standard lightning:helptext component has a strange limitation where it doesn’t work with Lightning Out. That’s why I decided to create a quick and dirty custom component to replace it:",
     "url": "http://smukov.github.io/blog/2018/02/18/Lightning-Help-Text/"
   }
-</script>
+</script>-->
 <!-- End Jekyll SEO tag -->
-  <script type="text/javascript" async="" src="//smukovgithubio.disqus.com/embed.js"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.4ca2b8f5ce995b1916c0f691daf84b8d.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.2b6bb3725200b8d992a8cb9c288952d3.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.e5df1a52b6ddbdcb633ac143fc68fe90.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="https://c.disquscdn.com/next/embed/alfalfa_min.d078e4f2a4721192a99e02601a767617.js" async="" charset="UTF-8"></script></head>
+  <!--<script type="text/javascript" async="" src="//smukovgithubio.disqus.com/embed.js"></script><link rel="preload" as="style" href="https://c.disquscdn.com/next/embed/styles/lounge.4ca2b8f5ce995b1916c0f691daf84b8d.css"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/common.bundle.2b6bb3725200b8d992a8cb9c288952d3.js"><link rel="preload" as="script" href="https://c.disquscdn.com/next/embed/lounge.bundle.e5df1a52b6ddbdcb633ac143fc68fe90.js"><link rel="preload" as="script" href="https://disqus.com/next/config.js"><script src="https://c.disquscdn.com/next/embed/alfalfa_min.d078e4f2a4721192a99e02601a767617.js" async="" charset="UTF-8"></script></head>-->
 
   <body>
     <div class="wrapper-masthead">
@@ -69,7 +69,7 @@
           <a href="/" class="site-avatar"><img src="/images/site-logo-2.png" style="margin-top: 2px;"></a>
 
           <div class="site-info">
-            <p class="site-description">Ideas and experiences of a Salesforce Developer</p>
+            <!--<p class="site-description">Ideas and experiences of a Salesforce Developer</p>-->
           </div>
 
         </header>
@@ -78,7 +78,7 @@
 
     <div id="main" role="main" class="container">
       <article class="post">
-  <h1>User Name Availability</h1>
+  <h1>Custom Task Component</h1>
 
   <div class="entry">
     <!--<p>The standard <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_helptext.htm">lightning:helptext</a> component has a strange limitation where it doesn’t work with <strong>Lightning Out</strong>. That’s why I decided to create a quick and dirty custom component to replace it:</p>
@@ -89,24 +89,144 @@
 
 <h2 id="why-create-a-custom-component">Why create a custom component?</h2>
 
-<p>A lot of companies are still working in Salesforce Classic, but are slowly transitioning to new Lightning Experience due to all the extra benefits that come with it. During this transition period a lot of them will utilize <strong>Lightning Out</strong> to render Lightning Components inside Visualforce Pages. I was working for one such company.</p>
+<p>A lot of companies are still working in Salesforce Classic, but are slowly transitioning to new Lightning Experience due to all the extra benefits that come with it. During this transition period a lot of them will utilize <strong>Lightning Out</strong> to render Lightning Components inside Visualforce Pages. I was working for one such company.</p>-->
 
-<p>The requirement was to build a new form that was supposed to be available both internally and also exposed in Communities, and I was going to build this using Lightning Components hosted in Visualforce Page. The first surprise I got was that <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_input.htm">lightning:input</a>, at least for now, doesn’t support any Help Text attribute. That made me create a custom input component (more on that some other day) that utilized the <a href="https://developer.salesforce.com/docs/atlas.en-us.lightning.meta/lightning/aura_compref_lightning_helptext.htm">lightning:helptext</a> component for the Help Text part. Then came my second surprise - this component doesn’t function properly in <strong>Lightning Out</strong>.</p>
+<p>The requirement was to build a new Custom Task Component that was supposed to be available both internally and also exposed in Communities, and I am going to build this using Lightning Components.</p>
 
-<p>I asked a <a href="https://salesforce.stackexchange.com/questions/200334/lightninghelptext-not-working-in-lightning-out">question</a> about this issue on StackExchange, but got no answer. The client really needed this feature in his form, so I had no other choice but to create a custom component.</p>
+<p>The client really needed this feature in his form, so I had to create a custom component.</p>
 
 <h2 id="getting-started-with-code">Getting started with code</h2>
 
-<p>Go ahead and create a new custom Lightning component named <code class="highlighter-rouge">customHelpText</code>. The code is pretty simple and I don’t think it requires much explanations - apart from CSS, that part gave me headaches and I’m still not sure how it works!</p>
+<p>Go ahead and create a new custom Lightning component named <code class="highlighter-rouge">customTask</code>. The code is pretty simple and I don’t think it requires much explanations - I’m sure it works!</p>
 
 <p>Use the code below to build your new component:</p>
 
-<h2 id="customhelptextcmp">customHelpText.cmp</h2>
+<h2 id="customTask">customTask.cmp</h2>
 
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;aura:component</span> <span class="nt">&gt;</span>
-  <span class="nt">&lt;aura:attribute</span> <span class="na">name=</span><span class="s">"text"</span> <span class="na">type=</span><span class="s">"String"</span> <span class="na">required=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes"
+                controller="TasksAssignedForContractor"</span> <span class="nt">&gt;</span>
+  <span class="nt">&lt;aura:attribute name="taskList" type="List"</span> <span class="na">name=</span><span class="s">"text"</span> <span class="na">type=</span><span class="s">"String"</span> <span class="na">required=</span><span class="s">"true"</span><span class="nt">/&gt;</span>
+<p><aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes"
+                controller="TasksAssignedForContractor">
+    <aura:attribute name="taskList" type="List"/>
+    <aura:attribute name="taskStatusList" type="List"/>
+    <aura:attribute name="selectStatus" type="String"/>
+    <aura:attribute name="options" type="List" />
 
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slds-form-element__icon"</span><span class="nt">&gt;</span>
+    <aura:attribute name="task" type="Task"/>
+    
+    <aura:attribute name="arrowDirection" type="string" default="arrowup" description="Use for change arrow sign direction on header based on click"/>
+    <aura:attribute name="isAsc" type="boolean" default="true" description="boolean flag for pass sorting condition to apex class"/>
+    <aura:attribute name="selectedTabsoft" type="string" default="DueDate" description="Use for show/hide arraow sign on header based on conditions"/>
+
+
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:dependency resource="markup://force:navigateToSObject" type="EVENT"/>
+
+    <aura:handler event="force:navigateToSObject" action="{!c.navigateToRecord}"/>
+
+    <lightning:card title="Tasks Due">
+        
+        <table style="width: 100%; table-layout:fixed;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-cell-wrap">
+            <thead>
+                <tr class="slds-text-heading--label">
+                    <th class="" style = "width: 30%;" scope="col">Subject</th>
+
+                    <!--<th class="" style = "width: 20%;" scope="col">--><!--onclick="{!c.sortDueDate}"-->
+                        <!--<a href="javascript:void(0);" class="slds-th__action slds-text-link-reset">
+                            <span class="slds-assistive-text">Sort</span>-->
+                            <!--<span class="slds-truncate" title="Name">Created Date</span>-->
+                            <!--<aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'DueDate') }">&nbsp;  &#9660; </aura:if>
+                            <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'DueDate') }"> &nbsp;  &#9650; </aura:if>-->
+                        <!--</a>-->
+                    <!--</th>-->
+
+                    <!--Added New -->                   
+                    <th class="" style = "width: 15%;" scope="col"  >
+                        <!--<a href="javascript:void(0);" class="slds-th__action slds-text-link-reset">-->
+                            <!--<span class="slds-assistive-text">Sort</span>-->
+                            <span class="slds-truncate" title="Name">Due Date</span>
+                            <!--<aura:if isTrue="{! and(v.arrowDirection == 'arrowdown', v.selectedTabsoft == 'DueDate') }">&nbsp;  &#9660; </aura:if>
+                            <aura:if isTrue="{! and(v.arrowDirection != 'arrowdown', v.selectedTabsoft == 'DueDate') }"> &nbsp;  &#9650; </aura:if>-->
+                        <!--</a>-->
+                    </th>
+
+
+                    <!--<th class="" style = "width: 20%;" scope="col">Status</th>-->
+                    <th class="" style = "width: 20%;" scope="col">Name </th>
+                    <th class="" style = "width: 20%;" scope="col">Related To </th>  
+                    <th class="" style = "width: 20%;" scope="col">Close Activity </th>  
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.taskList}" var="task" indexVar="index">
+                    <tr class="slds-hint-parent slds-cell-wrap">
+                        <td data-label="Subject" class="slds-cell-wrap" >
+                            <a onclick="{!c.navigateToRecord}" style="width:100%;" data-index="{!task.Id}">{!task.Subject}</a>
+                        </td>
+
+                        <!--<td data-label="Created Date" class="slds-cell-wrap" >  
+                            <ui:outputDate value="{!task.ActivityDate}" format="MM/dd/YYYY, hh:mm A"></ui:outputDate>                           
+                        </td> -->
+
+                        <!--Added New -->
+                        <td data-label="Due Date" class="slds-cell-wrap" >  
+                            <ui:outputDate value="{!task.ActivityDate}" format="MM/dd/YYYY"></ui:outputDate>                           
+                        </td> 
+
+                        <!--<td data-label="Status" data-taskId="{!task.Id}" id="tdId" class="tdclass">
+                            <lightning:select name="{!task.Id}" label="" aura:id="{!task.Id}" value="{!task.Status}"
+                                              variant="label-hidden" >
+                                <aura:iteration items="{!v.taskStatusList}" var="itemStatus">
+                                    <option text="{!itemStatus}" value="{!itemStatus}" />
+                                 </aura:iteration>
+                            </lightning:select>
+
+                            <lightning:input aura:id="taskId" label="taskId" name="taskId"
+                                                    type="text" value="{!task.Id}"  class="slds-hide"/>
+                        </td>-->
+                        <td data-label="Name" class="slds-cell-wrap" >
+                            <a onclick="{!c.navigateToName}" style="width:100%;" data-index="{!task.WhoId}">{!task.Who.Name}</a>
+                        </td>
+                        <td data-label="Related to" class="slds-cell-wrap" >
+                            <a onclick="{!c.navigateToRelatedTo}" style="width:100%;" data-index="{!task.WhatId}">{!task.What.Name}</a>
+                        </td>
+                        <td class="slds-cell-wrap" data-taskId="{!task.Id}">
+                            <div class="slds-dropdown-trigger">  
+                                <button class="slds-button slds-button--icon-border-filled">
+                                    <!--<c:svg class="slds-button__icon" xlinkHref="/resource/SLDS/icons/utility-sprite/svg/symbols.svg#switch">
+                                    </c:svg>-->
+                                    <lightning:icon iconName="utility:switch" alternativeText="Close" />
+                                    <span class="slds-assistive-text">Switch</span>
+                                </button>
+                                
+                                <div class="slds-dropdown slds-dropdown--right slds-nubbin--top-right slds-dropdown--menu">
+                                    <ul class="slds-dropdown__list" role="menu">
+                                        <li id="menu-0-0" class="slds-dropdown__item">
+                                            <a onclick="{!c.closeTask}" role="menuitem" data-index="{!task.Id}">
+                                                <p class="slds-truncate">Close</p>
+                                            </a>
+                                        </li>                                    
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </aura:iteration>
+            </tbody>
+        </table>
+        <aura:if isTrue="{!v.taskList.length >= 5}">
+            <table style="width: 100%; table-layout:fixed;" class="slds-table slds-table_bordered slds-table_cell-buffer slds-max-medium-table_stacked-horizontal slds-cell-wrap">
+                <th class="" scope="col"></th>
+                <td data-label="View All" class="slds-cell-wrap" >
+                    <a onclick="{!c.navigateToViewAll}" style="width:100%;">View All</a>
+                </td> 
+            </table>
+        </aura:if>
+    </lightning:card>
+</aura:component></p>
+
+  <!--<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slds-form-element__icon"</span><span class="nt">&gt;</span>
     <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"slds-form-element__icon slds-align-middle"</span>
       <span class="na">onclick=</span><span class="s">"{!c.handleOnClick}"</span>
       <span class="na">onmouseout=</span><span class="s">"{!c.handleMouseLeave}"</span>
@@ -177,7 +297,7 @@
     <span class="nl">word-break</span><span class="p">:</span> <span class="n">keep-all</span><span class="p">;</span>
     <span class="nl">overflow-wrap</span><span class="p">:</span> <span class="n">break-word</span><span class="p">;</span>
     <span class="nl">width</span><span class="p">:</span> <span class="m">200px</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+<span class="p">}</span></code></pre></figure>-->
 
 <h2 id="how-to-use-it">How to use it?</h2>
 
