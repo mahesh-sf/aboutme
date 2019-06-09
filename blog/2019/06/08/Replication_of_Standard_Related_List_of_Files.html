@@ -1569,37 +1569,49 @@
      <span class="nt">&lt;tr</span><span class="nt">&gt;</span>
       <span class="nt">&lt;th scope="row"</span><span class="nt">&gt;</span>
        <span class="nt">&lt;div class="slds-truncate" title="{!CD.record.ContentDocument.Title}"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;lightning:icon iconName="{!CD.fileType}" alternativeText="Approved" </span><span class="nt">/&gt;</span>&nbsp;&nbsp;
+        <span class="nt">&lt;lightning:icon iconName="{!CD.fileType}" alternativeText="Approved"</span><span class="nt">/&gt;</span>&nbsp;&nbsp;
 	<span class="nt">&lt;a href="{!'/lightning/r/ContentDocument/'+CD.record.ContentDocument.Id+'/view'}" data-id="{!CD.record.ContentDocument.Id}"</span><span class="nt">&gt;</span>{!CD.record.ContentDocument.Title}<span class="nt">&lt/a</span><span class="nt">&gt;</span>
        <span class="nt">&lt/div</span> <span class="nt">&gt;</span> 
       <span class="nt">&lt/th</span> <span class="nt">&gt;</span> 
-       
+      <span class="nt">&lt;th scope="row"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;div class="slds-truncate" title="{!CD.record.ContentDocument.Name}"</span><span class="nt">&gt;</span>{!CD.record.ContentDocument.CreatedBy.Name}<span class="nt">&lt/div</span><span class="nt">&gt;</span>
+      <span class="nt">&lt/th</span> <span class="nt">&gt;</span> 
+      <span class="nt">&lt;th scope="row"</span><span class="nt">&gt;</span>
+       <span class="nt">&lt;div class="slds-truncate" title="{!CD.record.ContentDocument.ContentSize}"</span><span class="nt">&gt;</span>{!CD.record.ContentDocument.ContentSize}<span class="nt">&lt/div</span><span class="nt">&gt;</span>
+      <span class="nt">&lt/th</span> <span class="nt">&gt;</span> 
+     <span class="nt">&lt/tr</span> <span class="nt">&gt;</span> 
+    <span class="nt">&lt/aura:iteration</span> <span class="nt">&gt;</span> 
+   <span class="nt">&lt/tbody</span> <span class="nt">&gt;</span> 
+  <span class="nt">&lt/table</span> <span class="nt">&gt;</span> 
+  <span class="nt">&lt/lightning:card</span> <span class="nt">&gt;</span> 
+<span class="nt">&lt/aura:component</span> <span class="nt">&gt;</span></code></pre></figure>
 
-  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slds-form-element__icon"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:void(0);"</span> <span class="na">class=</span><span class="s">"slds-form-element__icon slds-align-middle"</span>
-      <span class="na">onclick=</span><span class="s">"{!c.handleOnClick}"</span>
-      <span class="na">onmouseout=</span><span class="s">"{!c.handleMouseLeave}"</span>
-      <span class="na">onmouseover=</span><span class="s">"{!c.handleMouseEnter}"</span>
-      <span class="na">tabindex=</span><span class="s">"-1"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;lightning:icon</span> <span class="na">class=</span><span class="s">"slds-icon-text-default ms-help-icon"</span> <span class="na">size=</span><span class="s">"xx-small"</span>
-        <span class="na">iconName=</span><span class="s">"utility:info"</span><span class="nt">/&gt;</span>
-      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"slds-assistive-text"</span><span class="nt">&gt;</span>Help<span class="nt">&lt;/span&gt;</span>
-	<span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">aura:id=</span><span class="s">"divHelp"</span> <span class="na">class=</span><span class="s">"slds-popover slds-popover_tooltip slds-nubbin_left-top ms-help-popup-in-header slds-hide"</span>
-      <span class="na">role=</span><span class="s">"tooltip"</span> <span class="na">aria-live=</span><span class="s">"polite"</span><span class="nt">&gt;</span>
-      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"slds-popover__body ms-help-popup-body"</span><span class="nt">&gt;</span>
-	    <span class="nt">&lt;ui:outputText</span> <span class="na">value=</span><span class="s">"{!v.text}"</span><span class="nt">/&gt;</span>
-	  <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-  <span class="nt">&lt;/div&gt;</span>
-<span class="nt">&lt;/aura:component&gt;</span></code></pre></figure>
-
-<h2 id="customhelptextcontrollerjs">customHelpTextController.js</h2>
+  
+<h2 id="FilesRelatedListjs">FilesRelatedList.js</h2>
 
 <figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">({</span>
-  <span class="na">handleOnClick</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">helper</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$A</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">toggleClass</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"divHelp"</span><span class="p">),</span> <span class="s1">'slds-hide'</span><span class="p">);</span>
+  <span class="na">doInit</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">helper</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">var action = component.get("c.fetchContentDocument");</span>
+    <span class="nx">action.setParams({ "oppId" : component.get("v.recordId") });</span>
+    <span class="nx">action.setCallback(this, function(response) {</span>
+     <span class="nx">var state = response.getState();</span>
+     <span class="nx">if (state === "SUCCESS") {</span>
+      <span class="nx">var docs = response.getReturnValue();</span>
+      <span class="nx">var finalDocs = [];</span>
+      <span class="nx">var wrapperObj;</span>
+      <span class="nx">var iconName;</span>
+      <span class="nx">for(var i=0; i<docs.length; i++){</span>
+       <span class="nx">wrapperObj = {};{</span>
+       <span class="nx">wrapperObj.record = docs[i];{</span>
+       <span class="nx">iconName = 'doctype:attachment';</span>
+       
+    
   <span class="p">},</span>
+  
+  
+  
+  
+  
   <span class="na">handleMouseLeave</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">helper</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$A</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"divHelp"</span><span class="p">),</span> <span class="s1">'slds-hide'</span><span class="p">);</span>
   <span class="p">},</span>
