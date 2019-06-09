@@ -1604,20 +1604,50 @@
        <span class="nx">wrapperObj = {};</span>
        <span class="nx">wrapperObj.record = docs[i];</span>
        <span class="nx">iconName = 'doctype:attachment';</span>
+       <span class="nx">if ( /^POWER_POINT/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:ppt';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^EXCEL/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:excel';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^WORD/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:word';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^CSV/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:csv';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^TEXT/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:txt';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^PDF/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:pdf';</span>
+       <span class="nx">}</span>
+       <span class="nx">else if ( /^(PNG|GIF|JPG|JPEG|TIFF|BMP)/i.test( docs[i].ContentDocument.FileType ) ) {</span>
+        <span class="nx">iconName = 'doctype:image';</span>
+       <span class="nx">}</span>
        
-    
-  <span class="p">},</span>
-  
-  
-  
-  
-  
-  <span class="na">handleMouseLeave</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">helper</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$A</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">addClass</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"divHelp"</span><span class="p">),</span> <span class="s1">'slds-hide'</span><span class="p">);</span>
-  <span class="p">},</span>
-  <span class="na">handleMouseEnter</span> <span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">component</span><span class="p">,</span> <span class="nx">event</span><span class="p">,</span> <span class="nx">helper</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">$A</span><span class="p">.</span><span class="nx">util</span><span class="p">.</span><span class="nx">removeClass</span><span class="p">(</span><span class="nx">component</span><span class="p">.</span><span class="nx">find</span><span class="p">(</span><span class="s2">"divHelp"</span><span class="p">),</span> <span class="s1">'slds-hide'</span><span class="p">);</span>
-  <span class="p">},</span>
+       <span class="nx">wrapperObj.fileType = iconName;</span>
+       <span class="nx">finalDocs.push(wrapperObj);</span>
+      <span class="nx">}</span>
+      
+      <span class="nx">component.set("v.Files", finalDocs);</span>
+      <span class="nx">component.set('v.FileCount',finalDocs.length);</span>
+     <span class="nx">}</span>
+     <span class="nx">else if (state === "ERROR") {</span>
+      <span class="nx">var errors = response.getError();</span>
+      <span class="nx">if (errors){</span>
+       <span class="nx">if (errors[0] && errors[0].message){</span>
+        <span class="nx">console.log("Error message: " + 
+                                        errors[0].message);</span>
+       <span class="nx">}</span>
+      <span class="nx">}</span>
+      <span class="nx">else {</span>
+       <span class="nx">console.log("Unknown error");</span>
+      <span class="nx">}</span>
+     <span class="nx">}</span>
+    <span class="nx">});</span>
+   <span class="nx">$A.enqueueAction(action);</span>
+  <span class="nx">}</span>
 <span class="p">})</span></code></pre></figure>
 
 <p>The <code class="highlighter-rouge">handleOnClick</code> function is triggered by <code class="highlighter-rouge">onClick</code> event and it will allow this component to function properly when displayed on a mobile device. It will allow users to click on it in order to display a helpful message.</p>
