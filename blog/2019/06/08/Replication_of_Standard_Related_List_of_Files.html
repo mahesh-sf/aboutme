@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
   
-  <title>Custom Task Component</title>
+  <title>Replication of Standard Related List of Files</title>
   
 
   <meta name="author" content="Mahesh">
@@ -1650,8 +1650,18 @@
   <span class="nx">}</span>
 <span class="p">})</span></code></pre></figure>
 
-<p>The <code class="highlighter-rouge">handleOnClick</code> function is triggered by <code class="highlighter-rouge">onClick</code> event and it will allow this component to function properly when displayed on a mobile device. It will allow users to click on it in order to display a helpful message.</p>
 
+<h2 id="FilesRelatedListApex">FilesRelatedList.Apex</h2>
+<figure class="highlight"><pre><code class="language-apex" data-lang="html"><span class="nx">public class FilesRelatedList {</span>
+ <span class="nx">@AuraEnabled</span>
+ <span class="nx">public static List<ContentDocumentLink> fetchContentDocument(String oppId){</span>
+  <span class="nx">return [SELECT  ContentDocumentId,ContentDocument.Title, ContentDocument.FileType, ContentDocument.CreatedBy.Name, ContentDocument.ContentSize, ContentDocument.LatestPublishedVersion.FileType FROM  ContentDocumentLink WHERE  LinkedEntityId IN
+  (SELECT ID FROM Opportunity WHERE   Id =: oppId)];
+  </span>
+ <span class="nx">}</span>
+<span class="nx">}</span></code></pre></figure>
+	  
+	  
 
 
 
